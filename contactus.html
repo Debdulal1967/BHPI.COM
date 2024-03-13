@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<title>Welcome BHPI!</title>
+	<!-- <style>
+        .carousel-inner {
+            width: 50%;
+            max-height: 400px !important;
+        }
+    </style> -->
+
+	<style>
+		h3 {
+			font-size: 20px;
+			font-family: Verdana;
+			color: #515151;
+		}
+
+		img {
+			width: 40%;
+		}
+
+		.carousel-inner {
+			background-color: #C1E0FF;
+		}
+
+		.carousel-caption {
+			font-size: 2em;
+			right: 10%;
+			left: 60%;
+			top: 30%;
+			bottom: 30%;
+			text-align: left;
+			text-shadow: none;
+		}
+
+		.carousel-indicators {
+			font-size: 2em;
+			bottom: -1%;
+			text-align: left;
+			text-shadow: none;
+		}
+
+		/***
+* Bootstrap relies on CSS transitions for animation, which makes it
+* easy to override.  Just add the vertical class to your carousel:
+* <div class='carousel vertical'>...</div>
+***/
+
+		.carousel.vertical .carousel-inner {
+			height: 100%;
+		}
+
+		.carousel.vertical .item {
+			-webkit-transition: 0.6s ease-in-out top;
+			-moz-transition: 0.6s ease-in-out top;
+			-ms-transition: 0.6s ease-in-out top;
+			-o-transition: 0.6s ease-in-out top;
+			left: 0;
+		}
+
+		.carousel.vertical .active,
+		.carousel.vertical .next.left,
+		.carousel.vertical .prev.right {
+			top: 0;
+		}
+
+		.carousel.vertical .next,
+		.carousel.vertical .active.right {
+			top: 100%;
+		}
+
+		.carousel.vertical .prev,
+		.carousel.vertical .active.left {
+			top: -100%;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="BHPIHeading.JPG" height="200px" class="d-block w-100" alt="...">
+        </div>
+        
+    </div> -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+		<div class="container-fluid">
+			<!-- <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+
+			<div class="collapse navbar-collapse" id="navbarAbout">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							About Us
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#" data-toggle="modal"
+								data-target="#OverviewModal">Overview</a>
+							<a class="dropdown-item" href="#">Mission & Vision</a>
+							<a class="dropdown-item" href="#">History</a>
+							<a class="dropdown-item" href="Test.html">Test.html</a>
+						</div>
+
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="AdministrationDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Administration
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+							<a class="dropdown-item" href="#">Managing Commitee</a>
+							<a class="dropdown-item" href="#">Faculty</a>
+							<a class="dropdown-item" href="#">Rules & Regulatioon</a>
+							<a class="dropdown-item" href="#">Notice</a>
+							<a class="dropdown-item" href="#">Holiday List</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="AcademicsDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Academics
+						</a>
+
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+							<a class="dropdown-item" href="#" data-toggle="modal"
+								data-target="#CourseModalCenter">Course of Study</a>
+							<!-- <a class="dropdown-item" href="#">Alumni</a> -->
+							<a class="dropdown-item" href="Gallery.html">Gallery</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="e-LibraryDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							e-Learning
+						</a>
+						<div class="dropdown-menu" aria-labelledby="e-LibraryDropdown">
+							<a class="dropdown-item" href="#">Question Bank</a>
+							<a class="dropdown-item" href="#">e-Book</a>
+							<a class="dropdown-item" href="#">Tutorial</a>
+							<a class="dropdown-item" href="video.html">Learn With Fun</a>
+
+						</div>
+
+
+					</li>
+
+
+
+					<li class="nav-item">
+						<a class="nav-link" href="contactus.html">Contact us</a>
+					</li>
+				</ul>
+				<form class="d-flex">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Search</button>
+				</form>
+				<div class="mx-2">
+					<button class="btn btn-danger" data-toggle="modal" data-target="#LoginModal">Login</button>
+					<button class="btn btn-danger" data-toggle="modal" data-target="#SignupModal">SignUp</button>
+
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Button trigger modal -->
+
+	<!-- Login Modal -->
+	<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="LoginModalLabel">Login to BHPI</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Email address</label>
+							<input type="email" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Enter email">
+							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+								else.</small>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label>
+							<input type="password" class="form-control" id="exampleInputPassword1"
+								placeholder="Password">
+						</div>
+						<div class="form-group form-check">
+							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<label class="form-check-label" for="exampleCheck1">Check me out</label>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Signup Modal -->
+	<div class="modal fade" id="SignupModal" tabindex="-1" role="dialog" aria-labelledby="SignupModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="SignupModalLabel">SignUp for BHPI Account</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<label for="exampleInputName">Name</label>
+					<input type="Name" class="form-control" id="exampleInputName" aria-describedby="NameHelp"
+						placeholder="Enter Name">
+					<small id="nameHelp" class="form-text text-muted">Please enter your name</small>
+
+					<label for="exampleInputEmail">EMail</label>
+					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+						placeholder="Enter email">
+					<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+						else.</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				</div>
+				<div class="form-group">
+					<label for="cexampleInputPassword1">Confirm Password</label>
+					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				</div>
+
+				<button type="submit" class="btn btn-primary">Create</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+	</div>
+	<!-- Button trigger modal -->
+
+
+	<!--About Modal -->
+	<div class="modal fade" id="OverviewModal" tabindex="-1" role="dialog" aria-labelledby="OverviewModalTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="OverviewModalTitle">Overview</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					BASUDEVPUR H.P.INSTITUTION was established in 1940 and it is managed by the Department of Education.
+					It is located in Rural area. It is located in EGRA -II block of PURBA MEDINIPUR district of West
+					Bengal.
+					The school consists of Grades from 5 to 12. The school is Co-educational and it doesn't have an
+					attached pre-primary section. The school is N/A in nature and is not using school building as a
+					shift-school.
+					Bengali is the medium of instructions in this school. This school is approachable by all weather
+					road. In this school academic session starts in April.
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Button trigger modal
+    The school has Government building. It has got 8 classrooms for instructional purposes. All the classrooms are in good condition. It has 2 other rooms for non-teaching activities. The school has a separate room for Head master/Teacher. The school has Partial boundary wall. The school has have electric connection. 
+    The source of Drinking Water in the school is Hand Pumps and it is functional. The school has 5 boys toilet and it is functional. and 1 girls toilet and it is functional. The school has a playground. The school has a library and has 2247 books in its library. The school does not need ramp for disabled children to access classrooms. The school has 20 computers for teaching and learning purposes and all are functional. The school is having a computer aided learning lab. The school is Provided and Prepared in School Premises providing mid-day meal.
+    -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="CourseModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="CourseModalCenterTitle">Course Of Study</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					BASUDEVPUR H.P.INSTITUTION prepares students for the Madhyamik Pariksha (Bengali as first
+					Language) conducted by the West Bengal Board of Secondary Education and Uccha Madhyamik conducted by
+					the West Bengal Council of Higher Secondary Education. The medium of instruction is English.
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid text-center">
+		<div class="row">
+			&nbsp;
+	   </div>
+		<div class="row content">
+			<div class="col-sm-5">
+
+
+				<img src="BHPIHeading.JPG" class="img-fluid h-400 w-100"/>
+			</div>
+
+			<!--<div class="col-md-4 border m-0 p-0">
+			<iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=41,Gariahat road(South)Kolkata:700 031&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" height="100%" width="100%"></iframe>
+		</div>-->
+			<div class="col-sm-7" style="background-color:#eaeaea;">
+
+
+				<h4><span class="color-codin"><b>BASUDEBPUR HARIPRIYA INSTITUTION</b></span></h4>
+				<hr>
+				<div class="text-style-text_3"><i class="fa fa-phone text-warning"></i> &nbsp;VILL+P.O- BASUDEBPUR,P.S-
+					EGRA</div>
+				<div class="text-style-text_3"><i class="fa fa-envelope text-warning"></i> &nbsp;DIST- PURBA
+					MEDINIPUR,WEST BENGAL</div>
+				<div class="text-style-text_3"><i class="fa fa-location-arrow text-warning"></i> &nbsp;
+					PHONE:123456789,E-MAIL:<a href=mailto:"BHPI@GMAIL.COM">DEBDULAL.MAHAPATRA@GMAIL.COM</a> </div>
+			</div>
+
+
+
+
+		</div>
+
+	</div>
+
+
+
+
+
+</body>
+
+</html>

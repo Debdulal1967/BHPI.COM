@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notices>
+<notice id="1">
+    <noticehead>notice 1</noticehead>
+    <noticepdf>notice1.pdf</noticepdf>
+  </notice>
+<notice id="2">
+    <noticehead>notice 2</noticehead>
+    <noticepdf>notice2.pdf</noticepdf>
+  </notice>
+<notice id="3">
+    <noticehead>notice 3</noticehead>
+    <noticepdf>notice3.pdf</noticepdf>
+  </notice>
+<notice id="4">
+    <noticehead>notice 4</noticehead>
+    <noticepdf>notice4.pdf</noticepdf>
+  </notice>
+<notice id="5">
+    <noticehead>notice 5</noticehead>
+    <noticepdf>notice5.pdf</noticepdf>
+  </notice>
+</notices>

@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <title>Welcome BHPI!</title>
+    <!-- <style>
+        .carousel-inner {
+            width: 50%;
+            max-height: 400px !important;
+        }
+    </style> -->
+
+    <style>
+        h3 {
+            font-size: 20px;
+            font-family: Verdana;
+            color: #515151;
+        }
+
+        img {
+            width: 40%;
+        }
+
+        .carousel-inner {
+            background-color: #C1E0FF;
+        }
+
+        .carousel-caption {
+            font-size: 2em;
+            right: 10%;
+            left: 60%;
+            top: 30%;
+            bottom: 30%;
+            text-align: left;
+            text-shadow: none;
+        }
+
+        .carousel-indicators {
+            font-size: 2em;
+            bottom: -1%;
+            text-align: left;
+            text-shadow: none;
+        }
+
+        /***
+* Bootstrap relies on CSS transitions for animation, which makes it
+* easy to override.  Just add the vertical class to your carousel:
+* <div class='carousel vertical'>...</div>
+***/
+
+        .carousel.vertical .carousel-inner {
+            height: 100%;
+        }
+
+        .carousel.vertical .item {
+            -webkit-transition: 0.6s ease-in-out top;
+            -moz-transition: 0.6s ease-in-out top;
+            -ms-transition: 0.6s ease-in-out top;
+            -o-transition: 0.6s ease-in-out top;
+            left: 0;
+        }
+
+        .carousel.vertical .active,
+        .carousel.vertical .next.left,
+        .carousel.vertical .prev.right {
+            top: 0;
+        }
+
+        .carousel.vertical .next,
+        .carousel.vertical .active.right {
+            top: 100%;
+        }
+
+        .carousel.vertical .prev,
+        .carousel.vertical .active.left {
+            top: -100%;
+        }
+    </style>
+    <script>
+        function loadXMLDoc() {
+            let xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+ 
+                // Request finished and response 
+                // is ready and Status is "OK"
+                // alert(this.readyState);
+                if (this.readyState == 4 && this.status == 200) {
+                    //empDetails(this);
+                     noticeDetails(this);
+                }
+            };
+ 
+            // employee.xml is the external xml file
+             //xmlhttp.open("GET", "employee.xml", true);
+             xmlhttp.open("GET", "notice.xml", true);
+            xmlhttp.send();
+        }
+        
+       
+        function noticeDetails(xml) {
+            let i;
+          //  alert(xml);
+            let xmlDoc = xml.responseXML;
+            let table ='';
+                // `<tr><th>notice</th><th>location</th>
+                
+                // </tr>`;
+               
+            let x = xmlDoc.getElementsByTagName("notice");
+ 
+            // Start to fetch the data by using TagName 
+            for (i = 0; i < x.length; i++) {
+                table += '<p class="news_text_box"> <a href="Notice/'+ x[i].getElementsByTagName("noticepdf")[0].childNodes[0].nodeValue+'" target="_blank"> <i class="fa fa-angle-double-right" aria-hidden="true">'+x[i].getElementsByTagName("noticehead")[0].childNodes[0].nodeValue+'</i> </a></p>' ;
+                    // x[i].getElementsByTagName("noticehead")[0]
+                    //     .childNodes[0].nodeValue + "</td><td>" +
+                    // x[i].getElementsByTagName("noticepdf")[0]
+                    // .childNodes[0].nodeValue + "</td><td>"  ;
+            }
+ 
+            // Print the xml data in table form
+            document.getElementById("mqNews").innerHTML = table;
+        }
+ 
+    </script>
+</head>
+
+<body>
+    <!-- <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="BHPIHeading.JPG" height="200px" class="d-block w-100" alt="...">
+        </div>
+        
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+
+            <div class="collapse navbar-collapse" id="navbarAbout">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" data-toggle="modal"
+                                data-target="#OverviewModal">Overview</a>
+                            <a class="dropdown-item" href="#">Mission & Vision</a>
+                            <a class="dropdown-item" href="#">History</a>
+                            <a class="dropdown-item" href="Test.html">Test.html</a>
+                        </div>
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="AdministrationDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Administration
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <a class="dropdown-item" href="#">Managing Commitee</a>
+                            <a class="dropdown-item" href="#">Faculty</a>
+                            <a class="dropdown-item" href="#">Rules & Regulatioon</a>
+                            <a class="dropdown-item" href="#">Notice</a>
+                            <a class="dropdown-item" href="#">Holiday List</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="AcademicsDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Academics
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <a class="dropdown-item" href="#" data-toggle="modal"
+                                data-target="#CourseModalCenter">Course of Study</a>
+                            <!-- <a class="dropdown-item" href="#">Alumni</a> -->
+                            <a class="dropdown-item" href="Gallery.html">Gallery</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="e-LibraryDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            e-Learning
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="e-LibraryDropdown">
+                            <a class="dropdown-item" href="#">Question Bank</a>
+                            <a class="dropdown-item" href="#">e-Book</a>
+                            <a class="dropdown-item" href="Tutorial.html">Tutorial</a>
+                            <a class="dropdown-item" href="video.html">Learn With Fun</a>
+
+                        </div>
+
+
+                    </li>
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">Contact us</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div class="mx-2">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#LoginModal">Login</button>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#SignupModal">SignUp</button>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Button trigger modal -->
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="LoginModalLabel">Login to BHPI</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                    <p class="fl mt29">© Basudebpur H.P. Institution. All rights reserved.</p>
+                    <p class="fr mt29"> Website developed by : <a href="#" title="" target="_blank">BHPI Ex-Students</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="SignupModal" tabindex="-1" role="dialog" aria-labelledby="SignupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="SignupModalLabel">SignUp for BHPI Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="exampleInputName">Name</label>
+                    <input type="Name" class="form-control" id="exampleInputName" aria-describedby="NameHelp"
+                        placeholder="Enter Name">
+                    <small id="nameHelp" class="form-text text-muted">Please enter your name</small>
+
+                    <label for="exampleInputEmail">EMail</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="cexampleInputPassword1">Confirm Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <!-- Button trigger modal -->
+
+
+    <!--About Modal -->
+    <div class="modal fade" id="OverviewModal" tabindex="-1" role="dialog" aria-labelledby="OverviewModalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="OverviewModalTitle">Overview</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    BASUDEVPUR H.P.INSTITUTION was established in 1940 and it is managed by the Department of Education.
+                    It is located in Rural area. It is located in EGRA -II block of PURBA MEDINIPUR district of West
+                    Bengal.
+                    The school consists of Grades from 5 to 12. The school is Co-educational and it doesn't have an
+                    attached pre-primary section. The school is N/A in nature and is not using school building as a
+                    shift-school.
+                    Bengali is the medium of instructions in this school. This school is approachable by all weather
+                    road. In this school academic session starts in April.
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button trigger modal
+    The school has Government building. It has got 8 classrooms for instructional purposes. All the classrooms are in good condition. It has 2 other rooms for non-teaching activities. The school has a separate room for Head master/Teacher. The school has Partial boundary wall. The school has have electric connection. 
+    The source of Drinking Water in the school is Hand Pumps and it is functional. The school has 5 boys toilet and it is functional. and 1 girls toilet and it is functional. The school has a playground. The school has a library and has 2247 books in its library. The school does not need ramp for disabled children to access classrooms. The school has 20 computers for teaching and learning purposes and all are functional. The school is having a computer aided learning lab. The school is Provided and Prepared in School Premises providing mid-day meal.
+    -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="CourseModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="CourseModalCenterTitle">Course Of Study</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    BASUDEVPUR H.P.INSTITUTION prepares students for the Madhyamik Pariksha (Bengali as first
+                    Language) conducted by the West Bengal Board of Secondary Education and Uccha Madhyamik conducted by
+                    the West Bengal Council of Higher Secondary Education. The medium of instruction is English.
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav" >
+
+
+                <div class="card border-primary" style="height:450px;">
+                    <div class="card-header m-0 p-0 pt-1 pb-1 bg-primary text-light">
+                        <h4>Latest News </h4>
+                    </div>
+
+                    <div class="card-body  m-0 p-0 minister_inc_news_scrool">
+                        <marquee id="mqNews" direction="up" behavior="Scroll" class="m-0 p-0" scrollamount="3" width="100%"
+                            height="380px" onMouseOver="this.stop();" onMouseOut="this.start();">
+
+
+<!-- 
+                            <p class="news_text_box"> <a href="news_notification/EOI_final_04.03.2024.pdf"
+                                    target="_blank"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                    Invitation of Expression of Interest for consultancy services at the Kolkata
+                                    Biotech Park.<img src="news_notification/NEW_100px.gif" width="30" height="22" />
+                                </a></p>
+
+
+                            <p class="news_text_box"> <a href="news_notification/EOI for RISE Programme 2024-25.pdf"
+                                    target="_blank">
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> Invitation of
+                                    Expression of Interest for Participation in the RISE Programme 2024-2025
+                                    (for Training Institutes) </a></p>
+
+
+
+                            <p class="news_text_box"> <a href="news_notification/Guideline for RFA_2024.pdf"
+                                    target="_blank"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                    Guidelines for Research Fellowship Award 2024. </a></p>
+
+                            <p class="news_text_box"> <a href="news_notification/Guideline for RGA_2024.pdf"
+                                    target="_blank"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                    Guidelines for Research Grant Award 2024. </a></p>
+
+
+
+
+
+
+
+
+                            <p class="news_text_box"> <a
+                                    href="news_notification/Proposal for setting up  of  IPR Cell.pdf" target="_blank">
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                    Application are invited for Proposal for setting up of IPR Cell </a></p> -->
+
+
+                        </marquee>
+                    </div>
+
+
+
+                    <!-- <div class="pl-3" style="height:25px; background-color:#2572c3; width:100%;">
+                        <img src="https://img.icons8.com/fluency-systems-regular/24/ffffff/archive-folder.png" />&nbsp;
+                        <a href="latest_news_archive.php" target="_blank" style="color:#FFF;">Archive : Latest
+                            News</a>
+                    </div> -->
+
+                </div>
+            </div>
+
+            <div class="col-sm-8">
+
+                <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="Home/1.JPG" height="500px" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="Home/2.jpg" height="500px" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="Home/3.JPG" height="500px" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <!-- <span class="sr-only">Previous</span> -->
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <!-- <span class="sr-only">Next</span> -->
+                    </a>
+                </div>
+                <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="BHPIDesktop.JPG" height="500px" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="BHPIWS.jpg" height="500px" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div> -->
+            </div>
+            <div class="col-sm-2 sidenav">
+                <!-- <div id="carouselExampleCaptions" class="vertical carousel slide" data-ride="carousel"></div> -->
+                <div id="carouselExampleCaptions" class="carousel vertical slide" data-interval="2000"  data-ride="carousel">
+                   
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="MotivationalImage/1.JPG" height="450px" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="MotivationalImage/2.JPG" height="450px" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="MotivationalImage/3.JPG" height="450px" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="container-fluid text-center">
+        <div class="mt-10 p-10 bg-dark text-white text-center">
+            <p>© Basudebpur H.P. Institution. All rights reserved. Website developed by : BHPI
+                Ex-Students </p>
+        </div>
+
+    </footer>
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-md-9">
+                <div class="con">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="BHPIDesktop.JPG" height="400px" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+  
+            <div class="col-xs-2 col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://source.unsplash.com/400x400?code,technology" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's
+                            content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="container">
+        <div class="row bg-danger">
+            <div class="col-md-2 sm-6">
+                1 of 2
+            </div>
+            <div class="col-md-10 sm-6 border">
+                2 of 2
+            </div>
+        </div>
+        <div class="row bg-success">
+            <div class="col border">
+                1 of 3
+            </div>
+            <div class="col border">
+                2 of 3
+            </div>
+            <div class="col border">
+                3 of 3
+            </div>
+        </div>
+    </div>' -->
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- Vertical Carousel 
+    <link rel="stylesheet" href="/path/to/cdn/vertical-carousel.css" />-->
+    <script src="scripts/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".demo1").bootstrapNews({
+                newsPerPage: 5,
+                autoplay: true,
+                pauseOnHover: true,
+                direction: 'up',
+                newsTickerInterval: 4000,
+                onToDo: function () {
+                    //console.log(this);
+                }
+            });
+
+
+        });
+        loadXMLDoc();
+    </script>
+
+</body>
+
+</html>
